@@ -1,5 +1,7 @@
 (function() {
   'use strict';
+  let UUID = '6fbe1da7-3002-44de-92c4-bb6e04fb0212';
+  let name = 'Arduino Nano 33 BLE Sense';
 
   class HeartRateSensor {
     constructor() {
@@ -8,18 +10,19 @@
       this._characteristics = new Map();
     }
     connect() {
-      return navigator.bluetooth.requestDevice({filters:[{services:[ 'heart_rate' ]}]})
+      return navigator.bluetooth.requestDevice({filters:[{name:[ name ]}]})
       .then(device => {
         this.device = device;
         return device.gatt.connect();
       })
-      .then(server => {
-        this.server = server;
-        return server.getPrimaryService('heart_rate');
-      })
-      .then(service => {
-        return this._cacheCharacteristic(service, 'heart_rate_measurement');
-      })
+      // .then(server => {
+      //   this.server = server;
+      //   return server.getPrimaryService('heart_rate');
+      // })
+      // .then(service => {
+      //   return this._cacheCharacteristic(service, 'heart_rate_measurement');
+      // })
+
     }
 
     /* Heart Rate Service */

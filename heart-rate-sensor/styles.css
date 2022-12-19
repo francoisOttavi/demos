@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: #333333;
+  background-color: blue;
   font-family: Roboto;
 }
 
@@ -21,7 +21,7 @@
   overflow-x: visible;
   cursor: default;
   padding: 12px 0;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none; */
 }
 
 #waves {
